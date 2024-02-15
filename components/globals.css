@@ -1,0 +1,14 @@
+body {
+    background-color: #f5f5dc; /* クリーム色 */
+    font-family: "游ゴシック体", "YuGothic", "メイリオ", sans-serif;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* ラベルとテキストボックスの間のスペースを設定 */
+}
+.bigText {
+  font-size: 24px;
+  font-weight: bold;
+}

@@ -1,0 +1,31 @@
+.loading-overlay {
+    position: fixed; /* 画面全体にオーバーレイ */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* 半透明の白色背景 */
+    display: flex;
+    flex-direction: column; /* 子要素を縦方向に並べる */
+    justify-content: center; /* 横方向中央揃え */
+    align-items: center; /* 縦方向中央揃え */
+    z-index: 1000; /* 他の要素の上に表示 */
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* 外側の円の色 */
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f; /* アニメーションする部分の色 */
+    animation: spin 1s ease infinite; /* アニメーションの適用 */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,15 @@
+.bigText {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .container {
+    display: flex;
+    flex-direction: column; /* これにより要素が縦に並びます */
+  }
+.inputCreamColor {
+  background-color: #f5f5dc; /* クリーム色 */
+}
+input, textarea {
+  border: 1px solid #A0522D; /* 薄い茶色のカラーコード */
+  background-color: aliceblue;
+}
