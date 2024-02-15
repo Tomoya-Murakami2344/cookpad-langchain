@@ -2,17 +2,10 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <ul>
-      <li>
+    <p>
         <Link href="/">
-          Home
+          ホーム画面
         </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          About
-        </Link>
-      </li>
-    </ul>
+    </p>
   );
 }

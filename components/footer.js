@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
       <div>
-        <p>Footerコンポーネント</p>
+        <p>Recipe Assistant Created By TM</p>
       </div>
     );
   }

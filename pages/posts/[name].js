@@ -21,9 +21,11 @@ function split_text(text){
     3. ~
     以上のようなテキストから料理名、材料、手順を抽出する
     */
-    const recipeName  = text.split("料理名：")[1].split("材料")[0];
-    const ingredients = text.split("材料：")[1].split("手順")[0];
-    const procedure   = text.split("手順：")[1];
+    try{
+        const recipeName  = text.split("料理名：")[1].split("材料")[0];
+        const ingredients = text.split("材料：")[1].split("手順")[0];
+        const procedure   = text.split("手順：")[1];
+    
 
     // 手順、材料は番号を見て分割する
     const procedure_list = [];
@@ -69,6 +71,10 @@ function split_text(text){
             </ol>
         </div>
     );
+    }
+    finally{
+        return <div>データの取得に失敗しました</div>;
+    }
 }
 
 export default function Name({ingredients, recipeName}){
@@ -81,7 +87,7 @@ export default function Name({ingredients, recipeName}){
             const res = await fetch(`http://127.0.0.1:5000/api/data/${ingredients}/${recipeName}`); // FlaskサーバーのURL
             const json = await res.json();
             setData(json);
-            console.log("status",res.status)
+            console.log("status",res.status);
         }
         catch(error){
             console.log(error);
@@ -93,7 +99,7 @@ export default function Name({ingredients, recipeName}){
     fetchData();
     }, []);
     console.log("data", data, `from http://127.0.0.1:5000/api/data/${ingredients}/${recipeName}`);
-    
+    try{
     return (
         <div>
             {isLoading ? (
@@ -123,4 +129,14 @@ export default function Name({ingredients, recipeName}){
             )}
         </div>
     );
+    }finally{
+        return (
+        <div>データの取得に失敗しました
+            <ul>
+                <li> 他の食材やメニューを試してみてください</li>
+                <li> それでも改善しない場合はお問い合わせください </li>
+            </ul>
+        </div>
+        );
+    }
 }
