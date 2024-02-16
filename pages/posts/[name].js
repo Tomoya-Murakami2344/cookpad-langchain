@@ -83,7 +83,8 @@ export default function Name({ingredients, recipeName}){
     const fetchData = async () => {
         try{
             setIsLoading(true);
-            const res = await fetch(`http://127.0.0.1:5000/api/data/${ingredients}/${recipeName}`); // FlaskサーバーのURL
+            // const res = await fetch(`http://127.0.0.1:5000/api/data/${ingredients}/${recipeName}`); // FlaskサーバーのURL
+            const res = await fetch (`http://{process.env.NEXT_PUBLIC_API_URL}/api/data/${ingredients}/${recipeName}`);
             const json = await res.json();
             setData(json);
             console.log("status",res.status);
