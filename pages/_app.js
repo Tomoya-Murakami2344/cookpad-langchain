@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import Head from 'next/head';
 import '../components/globals.css';
 import './posts/LoadingSpinner.css';
-import styles from './recipes/styles/module.css';
 
 export default function MyApp({ Component, pageProps }) {
     return (

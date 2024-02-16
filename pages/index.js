@@ -5,18 +5,7 @@ import { useState } from 'react';
 import { useRouter } from "next/router";
 import AddRecipeButton from '../components/Button';
 
-function Content() {
-  return (
-    <div>
-      <p>ここにコンテンツが入ります。</p>
-      <style jsx>{`
-        p {
-          color: orange;
-        }
-      `}</style>
-    </div>
-  );
-}
+
 function MyComponent(props) {
   const { name } = props;
   const { width, height } = props;
