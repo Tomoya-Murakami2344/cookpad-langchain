@@ -70,8 +70,11 @@ export default function Home() {
                 <a style={{ fontSize: '20px' }}>検索</a>
               </Link>
             {/* </div> */}
-            </li>
+          </li>
         </ul>
+        <h5>
+          例: ほうれん草を使ったカレーライス
+        </h5>
         <div style={{ display: 'flex' }}>
           <div style={{ flex: 1 }}>
           <MyComponent name="/hourensou_spinach.png" width="100" height="100" />

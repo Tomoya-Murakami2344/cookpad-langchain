@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from 'react';
-import "./LoadingSpinner.css";
 
 export async function getServerSideProps(context) {
     const query = context.query;
@@ -72,7 +71,7 @@ function split_text(text){
         </div>
     );
     }
-    finally{
+    catch(error){
         return <div>データの取得に失敗しました</div>;
     }
 }
@@ -105,7 +104,8 @@ export default function Name({ingredients, recipeName}){
             {isLoading ? (
                 <div className="loading-overlay">
                     <div className="loading-spinner"></div>
-                    <p>Now Loading...</p>
+                    <p> Now Loading...</p>
+                    <p style={{ fontSize: "10px" }}>  30秒から1分ほど時間がかかることがあります </p>
                 </div>
             ) : (
                 <div>
@@ -129,7 +129,7 @@ export default function Name({ingredients, recipeName}){
             )}
         </div>
     );
-    }finally{
+    }catch(error){
         return (
         <div>データの取得に失敗しました
             <ul>

@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useState } from 'react';
 import { useRef } from 'react';
 // import styles from '../styles/globals.css';
-import styles from './styles/module.css';
 // import handleAddPictureClick from '../../components/picture';
 
 const NewRecipePage = () => {
