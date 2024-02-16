@@ -7,6 +7,11 @@
   min-height:25vh;
 }
 
+.input, .textarea {
+  border: 1px solid #A0522D; /* 薄い茶色のカラーコード */
+  background-color: aliceblue;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;

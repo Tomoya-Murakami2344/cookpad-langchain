@@ -29,11 +29,17 @@ export default function Home() {
     const newRecipeId = Math.random().toString(32).substring(2);
     router.push(`/recipes/${newRecipeId}`);
   };
+  const handleRecipAssist = ({ ingredients, recipeName }) => {
+    router.push({
+      pathname:'/posts/new_recipe',
+      query: { ingredients: ingredients, recipeName: recipeName },
+    });
+  }
   return (
     <main className={styles.main}>
       {/* <div>
-        <AddRecipeButton onClick={handleAddRecipeClick} />
-      </div> */}
+        <AddRecipeButton onClick={handleAddRecipeClick} message={"＋ 新しいレシピ"} />
+      </div> */} {/* coming soon */}
       <div className={styles.main}>
         <ul>
           <li>
@@ -43,22 +49,16 @@ export default function Home() {
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
             />
-            を使った
+            <a> を使った </a>
             <input
               type="text"
               placeholder="料理名"
               value={recipeName}
               onChange={(e) => setRecipeName(e.target.value)}
             />
-            を
-              <Link legacyBehavior href= {{
-                    pathname: `/posts/new_recipe`,
-                    query: { ingredients: ingredients, recipeName: recipeName },
-                }}
-              >
-                <a style={{ fontSize: '20px' }}>検索</a>
-              </Link>
-            {/* </div> */}
+            
+            <a> を </a>
+              <AddRecipeButton onClick={() => handleRecipAssist({ ingredients: ingredients, recipeName: recipeName })} message={"検索"} />
           </li>
         </ul>
         <h5>

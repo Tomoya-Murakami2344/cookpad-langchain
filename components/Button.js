@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddRecipeButton = ({ onClick }) => {
+const AddRecipeButton = ({ onClick, message }) => {
   return (
     <button 
     onClick={onClick}
@@ -13,7 +13,7 @@ const AddRecipeButton = ({ onClick }) => {
       cursor: 'pointer',
     }}
     > 
-      ＋ 新しいレシピ
+    {message}
     </button>
   );
 };

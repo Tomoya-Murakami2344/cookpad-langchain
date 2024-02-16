@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from 'react';
 import { useRef } from 'react';
-import styles from './styles/module.css';
+import styles from './styles/recipe.module.css';
 // import handleAddPictureClick from '../../components/picture';
 
 const NewRecipePage = () => {
@@ -113,7 +113,7 @@ const NewRecipePage = () => {
           >レシピ名:
           </label>
           <br />
-          <input
+          <input className={styles.input}
             type="text"
             value={recipeName}
             onChange={(e) => setRecipeName(e.target.value)}
@@ -121,10 +121,12 @@ const NewRecipePage = () => {
           />
         <br />
         <div>
-          <label>作り方:</label>
+          <label
+            className={styles.bigText}
+          >作り方:</label>
         {instructions.map((instruction, index) => (
           <div key={index}>
-          <textarea
+          <textarea className={styles.input}
             value={instruction}
             onChange={(e) => updateInstruction(index, e.target.value)}
           />
@@ -132,14 +134,17 @@ const NewRecipePage = () => {
         ))}
         </div>
       
-        <button type="button" onClick={addInstruction}>➕</button>
-        <button type="button" onClick={delInstruction}>➖</button>
+        <button type="button" onClick={addInstruction} className={styles.input}>
+          ➕</button>
+        <button type="button" onClick={delInstruction} className={styles.input}>
+          ➖</button>
         <br />
         <br />
-        <button type="submit">レシピを保存</button>
+        <button type="submit" className={styles.input}>レシピを保存</button>
+        <a> </a>
         <button 
             onClick={backtoHome}
-            type="submit">ホームへ
+            type="submit" className={styles.input}>ホームへ
         </button>
         </div>
         </div>
