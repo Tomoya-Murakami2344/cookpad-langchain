@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
     return {props: {ingredients, recipeName}};
 }
 
-export default function Name({ingredients, recipeName}){
+function Name({ingredients, recipeName}){
     const [data, setData] = useState("")
     const [isLoading, setIsLoading] = useState(true);
 
@@ -18,14 +18,15 @@ export default function Name({ingredients, recipeName}){
     const fetchData = async () => {
         try{
             setIsLoading(true);
-            // const res = await fetch(`http://127.0.0.1:5000/api/data/${ingredients}/${recipeName}`); // FlaskサーバーのURL
-            const res = await fetch (`http://${process.env.NEXT_PUBLIC_API_URL}/api/data/${ingredients}/${recipeName}`);
+            const endpoint = encodeURI(`${process.env.NEXT_PUBLIC_API_URL}/api/data/${ingredients}/${recipeName}`);
+            const res = await fetch(endpoint);
             const json = await res.json();
             setData(json);
             console.log("status",res.status);
         }
         catch(error){
-            console.log(error);
+            // エラー時にはエラーメッセージを表示する
+            setIsLoading(false);
         }
         finally{
             setIsLoading(false);
@@ -36,7 +37,6 @@ export default function Name({ingredients, recipeName}){
     // カウントアップの処理
     let time = countUp();
 
-    console.log("data", data, `from http://${process.env.NEXT_PUBLIC_API_URL}/api/data/${ingredients}/${recipeName}`);
     try{
     return (
         <div>
@@ -45,6 +45,7 @@ export default function Name({ingredients, recipeName}){
                     <div className="loading-spinner"></div>
                     <p> Now Loading...</p>
                     <p style={{ fontSize: "10px" }}>  30秒から1分ほど時間がかかることがあります </p>
+                    <p style={{ fontSize: "10px" }}>  Render のサーバーが15分でスリープ状態になるため、1度目のアクセス時にはさらに時間がかかります </p>
                     <p style={{ fontSize: "10px" }}>  {time}秒経過 </p>
                 </div>
             ) : (
@@ -80,3 +81,4 @@ export default function Name({ingredients, recipeName}){
         );
     }
 }
+export default Name;
