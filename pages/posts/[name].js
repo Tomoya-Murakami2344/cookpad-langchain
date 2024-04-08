@@ -97,7 +97,7 @@ function Name({ingredients, recipeName}){
                     <div className="loading-spinner"></div>
                     <p> Now Loading...</p>
                     <p style={{ fontSize: "10px" }}>  30秒から1分ほど時間がかかることがあります </p>
-                    <p style={{ fontSize: "10px" }}>  Render のサーバーが15分でスリープ状態になるため、1度目のアクセス時にはさらに時間がかかります </p>
+                    <p style={{ fontSize: "10px" }}>  デプロイ先のサーバーが15分でスリープ状態になるため、1度目のアクセス時にはさらに時間がかかります </p>
                     <p style={{ fontSize: "10px" }}>  {time}秒経過 </p>
                 </div>
             ) : isLoading2 ? (
